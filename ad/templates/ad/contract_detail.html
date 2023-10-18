@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>Договор на имя {{contract_detail.client.second_name}}a {{contract_detail.client.name}}a
+    {{contract_detail.client.third_name}}a</h3>
+<p>Название продукта: {{contract_detail.product.name}}</p>
+<p>Номер договора: {{contract_detail.contract_number}}</p>
+<p>Дата заключения: {{contract_detail.time_create}}</p>
+
+
+{% endblock %}

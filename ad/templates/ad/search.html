@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{title}}</h1>
+
+<form action="{% url 'search_results' %}" method="get">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input name="q" type="search" placeholder="Фамилия клиента">
+    <input name="n" type="search" placeholder="Имя клиента">
+    <input name="o" type="search" placeholder="Отчество клиента">
+    <input name="p" type="search" placeholder="Номер паспорта">
+    <input name="c" type="search" placeholder="Номер договора">
+    <button type="submit">Поиск</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{title}}</h1>
+<ul>
+    {% if client_list %}
+        {% for client in client_list %}
+        <li>
+            {{client.second_name}} {{client.name}} {{client.third_name}}
+            <ol>
+
+                {%for contract in client.contracts.all%}
+                <li>
+                    <a href="{{ contract.get_absolute_url }}">{{contract.product.name}} {{contract.contract_number}}
+                        {{contract.time_create}}</a><br>
+                </li>
+                {%endfor%}
+
+            </ol>
+        </li>
+        {% endfor %}
+    {% else %}
+        <p>Контракты не найдены</p>
+    {% endif %}
+</ul>
+
+{% endblock %}
